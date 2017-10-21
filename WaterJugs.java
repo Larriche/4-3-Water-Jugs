@@ -34,8 +34,6 @@ public class WaterJugs
             
             // Pop new node from frontier to consider
 			curr_node = frontier.remove(0);
-			System.out.print("Current Node:");
-			System.out.print("[" + curr_node.state[0] + "," + curr_node.state[1] + "]");
             
 		    // Add chosen node to explored list if not already there
 			if(!this.inExplored(curr_node.state)) {
@@ -48,20 +46,16 @@ public class WaterJugs
 
             // Apply our transition model to generate child nodes 
             // from current node
-			System.out.print("Children");
 			for (Action action : actions) {
 				Node child = this.getChildNode(curr_node, action);		
 				
 				if (!this.inFrontier(child) && !this.inExplored(child.state)) {
-					System.out.print(child.state[0] + "," + child.state[1] + "| ");
 					if (this.isGoal(child.state)) {
 						return child;
 					}
 					frontier.add(child);
 				}
-
 			}
-			System.out.println();
 		}
 	}
 
@@ -219,9 +213,9 @@ public class WaterJugs
 			solution_node = solution_node.parent;
 		} 
 
-		System.out.print("\n\nSteps:\n\n");
+		System.out.println("Steps:");
 
-		steps.add("\n4 gallon jug has " + solution_node.state[0] + " gallons and 3 gallon jug has " + 
+		steps.add("4 gallon jug has " + solution_node.state[0] + " gallons and 3 gallon jug has " + 
 					solution_node.state[1] + " gallons");
 
 		while (steps.size() > 0) {
