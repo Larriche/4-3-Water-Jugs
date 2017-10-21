@@ -7,7 +7,7 @@ public class Action
 	public String to;
 
     // Quantity in gallons
-	int quantity;
+	public int quantity;
 
     public Action(String from, String to, int quantity)
     {

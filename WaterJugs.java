@@ -49,9 +49,8 @@ public class WaterJugs
             // Apply our transition model to generate child nodes 
             // from current node
 			System.out.print("Children");
-			for (int i = 0; i < actions.length; i++) {
-				Action curr = actions[i];
-				Node child = this.getChildNode(curr_node, curr);		
+			for (Action action : actions) {
+				Node child = this.getChildNode(curr_node, action);		
 				
 				if (!this.inFrontier(child) && !this.inExplored(child.state)) {
 					System.out.print(child.state[0] + "," + child.state[1] + "| ");
